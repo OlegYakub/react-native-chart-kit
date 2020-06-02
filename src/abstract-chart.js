@@ -117,14 +117,14 @@ class AbstractChart extends Component {
 
       if (count === 1) {
         yLabel = `${yAxisLabel}${formatYLabel(
-          data[0].toFixed(decimalPlaces)
+          parseFloat(data[0].toFixed(decimalPlaces)).toLocaleString('en')
         )}${yAxisSuffix}`;
       } else {
         const label = this.props.fromZero
           ? (this.calcScaler(data) / count) * i + Math.min(...data, 0)
           : (this.calcScaler(data) / count) * i + Math.min(...data);
         yLabel = `${yAxisLabel}${formatYLabel(
-          label.toFixed(decimalPlaces)
+          parseFloat(label.toFixed(decimalPlaces)).toLocaleString('en')
         )}${yAxisSuffix}`;
       }
 
